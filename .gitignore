@@ -1,0 +1,7 @@
+# txt
+diff-files.txt
+file-status.txt
+commit-msg.txt
+
+# env
+.env
