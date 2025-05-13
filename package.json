@@ -1,0 +1,14 @@
+{
+  "name": "smart-commit-bot",
+  "version": "1.0.0",
+  "description": "package file test",
+  "main": "index.js",
+  "scripts": {
+    "test": "bash ./auto/bash/experiment.sh"
+  },
+  "author": "inseong",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  }
+}

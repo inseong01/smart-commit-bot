@@ -1,6 +1,13 @@
 # txt
 diff-files.txt
+diff-files-1.txt
+diff-files-2.txt
+diff-files-3.txt
+
 file-status.txt
+file-status-1.txt
+file-status-2.txt
+
 commit-msg.txt
 
 # env
