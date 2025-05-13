@@ -9,4 +9,4 @@ const today = `${year}.${month}.${date}.`
 
 const msg_path = resolve('./commit-msg.txt');
 const msg = await readFile(msg_path, { encoding: 'utf8' });
-await appendFile('./개발일지.txt', `\n${today}\n${msg}`, { encoding: 'utf-8' });
+await appendFile('./개발일지.txt', `\n${today}\n${msg}\n`, { encoding: 'utf-8' });

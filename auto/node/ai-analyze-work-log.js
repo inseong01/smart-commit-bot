@@ -45,8 +45,8 @@ const generationConfig = {
 export default async function analyzeWorkLog({ git_diff_text, git_status_text }) {
   const msg1Text1 = {
     text: `[제약 조건]
-1. 모든 파일 경로는 생략하고 파일명만 사용하세요.
-2. 헤더는 50자 이내로 작성하고, 동사 원형으로 시작하세요 (예: feat: 기능 추가, fix: 버그 수정).
+1. 모든 파일 주소는 생략하고 파일명만 사용하세요.
+2. 헤더는 50자 이내로 작성하고, 영단어로 시작하세요 (예: feat, fix, chore, refactoring).
 3. 헤더 feat 동사는 코드 기능 추가일 때만 사용하세요.
 4. 작업이 특정되지 않을 때는 chore를 사용하세요.
 5. 본문은 리스트(-) 형식으로 작성하고, 변경 사항을 명확하게 설명하세요.

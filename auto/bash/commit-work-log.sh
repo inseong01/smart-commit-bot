@@ -1,9 +1,11 @@
 # 작업일지 파일(영문 권장) - 한글 작성 시 파일명 깨짐
 WORK_LOG_FILE="work-log.txt" 
+# 커밋 파일
+COMMIT_MSG_FILE="./commit-msg.txt"
 # 작업 요약 함수 경로
-SUMMARY_WORK_LOG_FILE=./auto/node/summary-work-log.js 
+SUMMARY_WORK_LOG_FILE="./auto/node/summary-work-log.js" 
 # 작업 내역 추가 함수 경로
-PAST_WORK_LOG_FILE=./auto/node/past-work-log.js 
+PAST_WORK_LOG_FILE="./auto/node/past-work-log.js"
 
 trap "echo '자동 커밋 실행 종료'; exit 0" SIGINT
 
@@ -12,8 +14,8 @@ git add .
 echo -e '\n파일 스테이징 완료되었습니다.'
 
 echo '>> Git 상태 및 변경 사항 파일 생성 중...'
-git status --short | grep -vF "$WORK_LOG_FILE" > file-status.txt
-git diff --cached -- . ":!$WORK_LOG_FILE" > diff-files.txt
+git status --short | grep -vE "$WORK_LOG_FILE|.*ignore|.package-lock.json" > file-status.txt
+git diff --cached -- . ":!$WORK_LOG_FILE" ":!.*ignore" ":!package-lock.json" ":!node_modules" > diff-files.txt
 echo -e '\nGit 파일이 성공적으로 생성되었습니다.'
 
 trap 'echo "첫번째 요약 에러가 발생하여 실행을 종료합니다."; exit 1' ERR
@@ -25,7 +27,7 @@ echo -e '\n요약이 완료되었습니다.'
 while true; do
   echo '요약을 확인해주세요.'
   echo '---'
-  cat ./commit-msg.txt
+  cat "$COMMIT_MSG_FILE"
   echo -e '\n---'
   echo '>> 다시 요약할까요? (y/N)'
 
